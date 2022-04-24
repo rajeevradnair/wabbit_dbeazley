@@ -408,3 +408,10 @@ print(to_source_pp(model8, DisplayContext()))
 print('\n<< interpreter running .... >>')
 print(interp.interpret_program(model8))
 
+
+print('\n\n--- Program 9')
+source9 = '''
+    var x float = 1.234;
+    var y int = 988;
+    print x + float(y);  
+'''

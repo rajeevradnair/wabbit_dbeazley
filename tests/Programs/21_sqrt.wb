@@ -26,8 +26,8 @@ func sqrt(x float) float {
     return guess;
 }
 
-print sqrt(100.0);   // Should work. 
+print sqrt(9.0);   // Should work. 
 
-const LAST = sqrt(100.0);   // Should work. 
+const LAST = sqrt(900.0);   // Should work. 
 
 print LAST;

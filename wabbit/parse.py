@@ -99,10 +99,12 @@ from wabbit import interp
 
 SYMBOL_TABLE = {}
 
+
 class TokenStream:
     def __init__(self, tokens):
         self.tokens = tokens  # Tokens from the tokenizer
         self.lookahead = None  # Next unconsumed token (or None)
+        self.fn_def_flag = False
 
     # expect() expects a particular type and then returns the actual Token object that was just read
     def expect(self, type):
@@ -114,7 +116,7 @@ class TokenStream:
             self.lookahead = None  # Consume the lookahead (eat it)
             return tok
         else:
-            raise SyntaxError(f"On lineno{self.lookahead.lineno} -> Expected {type}. Got {self.lookahead}")
+            raise SyntaxError(f"On lineno {self.lookahead.lineno} -> Expected {type}. Got {self.lookahead}")
 
     # peek() is not really a peek, but really the next token that I want to consume
     def peek(self, type):
@@ -271,8 +273,10 @@ def parse_if_statement(stream: TokenStream):
     return IfStatement(test, consequence, alternative)
 
 
-# TODO
 def parse_function_definition(stream: TokenStream):
+
+    print('entered function definition')
+
     token = stream.accept('FUNC')
     if not token:
         raise SyntaxError(f'Expected func keyword !')
@@ -283,6 +287,12 @@ def parse_function_definition(stream: TokenStream):
         name = Name(token.value)
     else:
         raise SyntaxError(f'Expected func name')
+
+    # We are starting a function definition
+    # stream.fn_def_flag = True
+
+    # update the symbol table with the special meaning
+    SYMBOL_TABLE[token.value] = 'func'
 
     # consume LPAREN
     token = stream.accept('LPAREN')
@@ -304,20 +314,17 @@ def parse_function_definition(stream: TokenStream):
     if stream.peek('NAME'):  # types are being tokenized into NAME
         fn_return_type = Type(stream.expect('NAME').value)
 
+    # consume LBRACE
     stream.expect('LBRACE')
 
     # parse the function code block
     fn_code_block = parse_function_block(stream)
 
-    print('fn code block', fn_code_block)
-
+    # consume RBRACE
     stream.expect('RBRACE')
 
-    # k = FunctionDefinition(name, fn_parameters, fn_return_type, fn_code_block)
-    # print(k)
-
-    # update the symbol table with the special meaning
-    SYMBOL_TABLE[name.value] = 'func'
+    # No longer in function definition
+    # stream.fn_def_flag = False
 
     return FunctionDefinition(name, fn_parameters, fn_return_type, fn_code_block)
 
@@ -358,10 +365,20 @@ def parse_function_block(stream: TokenStream):
 
 
 def parse_return_statement(stream: TokenStream):
+
+    # consume RETURN token
     stream.accept('RETURN')
+
+    # TODO - should I restore this block
     expression = parse_expression_statement(stream)
-    # k = FunctionReturn(expression)
-    # print('ast for return statement ->', k)
+    # TODO - restore the block
+
+    # TODO - delete the below i.e. testing for expression containing multiple fn_call()s
+    # expression = parse_expression(stream)
+    # print('ast for expression ->', expression)
+    # stream.expect('SEMI')
+    # TODO - DELETE THE BLOCK
+
     return FunctionReturn(expression)
 
 
@@ -381,6 +398,7 @@ def parse_function_application(name:str, stream: TokenStream):
 
     return FunctionApplication(Name(name), fn_arguments)
 
+
 def parse_function_arguments(stream: TokenStream):
 
     arguments = []
@@ -391,6 +409,7 @@ def parse_function_arguments(stream: TokenStream):
             stream.expect('COMMA')
 
     return FunctionArguments(arguments)
+
 
 def parse_function_argument(stream: TokenStream):
     expression = parse_expression(stream)
@@ -464,6 +483,7 @@ def parse_rel_term(stream: TokenStream):
             stream.accept('EQ') or stream.accept('NE')):
         right_term = parse_add_term(stream)
         left_term = RelOp(tok.value, left_term, right_term)
+
     return left_term
 
 
@@ -473,12 +493,16 @@ def parse_add_term(stream: TokenStream):
     # idea is to implement ADD_TERM = term +/- (term +/- (term +/- (term +/- .... where term is a*/b
     # so start with collecting as many MULT or DIV terms as possible
     term = parse_term(stream)
+
+    print(term)
+
     # when the stream of MULT, DIVIDE is over, check for PLUS or MINUS
     while tok := (stream.accept('PLUS') or stream.accept('MINUS')):
         # if PLUS or MINUS is found, then check again for a stream of MULT or DIVIDE and store into right_term
         right_term = parse_term(stream)
         # Make the ADD_TERM and stage it for the next round
         term = BinOp(tok.value, term, right_term)
+
     return term
 
 
@@ -494,6 +518,7 @@ def parse_term(stream: TokenStream):
         stream.expect('DIVIDE')
         right_factor = parse_factor(stream)
         factor = BinOp('/', factor, right_factor)
+
     return factor
 
 
@@ -521,8 +546,11 @@ def parse_factor(stream: TokenStream):
 
     token = stream.accept('NAME')
     if token:
+        k = SYMBOL_TABLE.get(token.value, None)
+        print(f'token -> {token.value}, {k}')
         if _t := SYMBOL_TABLE.get(token.value, None):
             if _t == 'func':
+                # print(f'fn def flag -> {stream.fn_def_flag}, func -> {token.value} ')
                 return parse_function_application(token.value, stream)
             else:
                 raise RuntimeError(f"No AST handler assigned for the {token.value} in the symbol table")

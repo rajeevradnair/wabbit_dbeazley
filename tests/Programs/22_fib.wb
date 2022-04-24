@@ -1,5 +1,7 @@
 /* 22_fib.wb
 
+
+
    Recursive Fibonacci numbers */
 
 func fib(n int) int {
@@ -11,7 +13,7 @@ func fib(n int) int {
     return 0;
 }
 
-const LAST = 30;
+const LAST = 25;
 
 func run() int {
     var n = 0;
@@ -23,7 +25,5 @@ func run() int {
 }
 
 run();
-
-
 
 

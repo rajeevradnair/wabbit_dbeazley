@@ -619,7 +619,7 @@ def to_source_pp(node, disp):
         return node.name
 
     elif isinstance(node, BinOp):
-        return f'{to_source_pp(node.left,disp)} {node.op} {to_source(node.right)}'
+        return f'{to_source_pp(node.left,disp)} {node.op} {to_source_pp(node.right, disp)}'
 
     elif isinstance(node, RelOp):
         return f'{to_source_pp(node.left, disp)} {node.op} {to_source_pp(node.right, disp)}'

@@ -1,0 +1,10 @@
+/* 22_fib.wb
+ 
+   Recursive Fibonacci numbers */
+
+func fib() int {
+    return 1;
+}
+
+print fib() +  + fib();
+
