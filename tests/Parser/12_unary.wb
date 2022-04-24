@@ -1,0 +1,12 @@
+/* 12_unary.wb
+
+   Unary operators.  These are handled as a special kind of factor.
+   In your parser, look for a leading -/+ and then apply it to the
+   factor that immediately follows. 
+   */
+
+print -2;
+print +3;
+print -x*y;  // Must be parsed as (-x) * y, not -(x*y)
+print x*-y;
+

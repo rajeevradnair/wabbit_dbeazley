@@ -1,0 +1,29 @@
+/* 22_fib.wb
+
+   Recursive Fibonacci numbers */
+
+func fib(n int) int {
+    if n < 2 {
+        return 1;
+    } else {
+        return fib(n-1) + fib(n-2);
+    }
+    return 0;
+}
+
+const LAST = 30;
+
+func run() int {
+    var n = 0;
+    while n < LAST {
+        print fib(n);
+        n = n + 1;
+    }
+    return 0;
+}
+
+run();
+
+
+
+

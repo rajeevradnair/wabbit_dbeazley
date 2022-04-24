@@ -1,0 +1,68 @@
+/* prog2.wb - Calculations */
+
+/* Wabbit has constants, variables, integers, and floating point numbers.
+   The following program is an example.  In this program, a rubber
+   ball is dropped off a building with an initial height of 100 meters.
+   On each bounce, the ball rebounds to 3/5 its original height. Print
+   the height of the ball on the first 10 bounces. 
+ */
+   
+const initial_height = 200.0; 
+const rebound = 0.6;
+const total_bounces = 10;
+
+func toothFairy() int {
+	
+	var toothLost int = 1;
+	var option1_Payout float = 0.0;
+	const option1_mult = 10.0;
+	
+	var option2_Payout float = 0.0;
+	const option2_mult = 0.1; 
+	var option2_factor float = 0.5;
+	
+	while (toothLost <=20) {
+		toothLost=toothLost+1;
+		
+		option1_Payout = option1_Payout + option1_mult;
+		option2_factor = option2_factor * 2.0;
+		option2_Payout = option2_Payout + option2_mult * option2_factor;
+	}
+	
+	print('Option 1 payout = ');
+	print(option1_Payout);
+	
+	print('Option 2 payout = ');
+	print(option2_Payout);
+	
+	return 0;
+}
+
+
+func main() int {
+   var bounce int = 0;
+   var height float = initial_height;
+   while bounce < total_bounces {
+       bounce = bounce + 1;
+       height = height * rebound;
+       print(height);
+   }
+   
+   toothFairy();
+   
+   return 0;
+}
+
+/* Run the above program using python wabbit.py prog2.wb.  Make sure
+   you understand the output. Try changing some of the initial constants */
+
+/* Challenge.  Modify the program to solve the Tooth Fairy problem.
+   Upon losing their first tooth, the tooth fairy offers the child a
+   choice.  They can either receive $10 for every tooth lost or if they
+   are willing to accept a single penny for the first tooth, the
+   tooth fairy will double the amount given for each subsequent tooth.
+   Which is a better deal?  A child typically has 20 baby teeth.  */
+
+
+
+

@@ -1,0 +1,9 @@
+/* 10_factor.wb
+
+   Different kinds of factors in expressions */
+
+print 1;      // Integers
+print 1.5;    // Floats
+print true;   // Bool
+print false;  // Bool
+print x;      // Variable name

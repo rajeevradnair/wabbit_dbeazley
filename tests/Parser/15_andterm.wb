@@ -1,0 +1,8 @@
+/* 15_andterm.wb
+
+   Parsing of logical-and operator */
+
+print x && y;
+print a < b && c > d;   // Must parse as (a < b) && (c > d)
+
+

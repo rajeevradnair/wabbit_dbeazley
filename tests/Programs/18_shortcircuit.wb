@@ -1,0 +1,16 @@
+/* 18_shortcircuit.wb
+
+Short-circuit evaluation.
+Note: Implementing this is likely to be tricky/messy. 
+Come back to it later if you have other things to fix.*/
+
+var x = 1;
+var y = 0;
+
+var z = 2;
+
+print true || (x/y == 0);       // Does NOT evaluate x/y
+print false && (x/y == 0);      // Does NOT evaluate x/y
+
+print false || (z/x == 2);
+print true && (z/x == 2);

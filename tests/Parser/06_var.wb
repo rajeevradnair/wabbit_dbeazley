@@ -1,0 +1,9 @@
+/* 06_var.wb
+
+   Parse a single var statement. var is like const, but both the
+   type and value are optional. */
+
+var x int = 1;
+var x = 1;
+var x int;
+

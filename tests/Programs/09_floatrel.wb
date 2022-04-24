@@ -1,0 +1,17 @@
+/* 09_floatrel.wb
+
+   Some tests of relations involving floating point numbers.
+ */
+
+var a float = 2.0;
+var b float = 3.0;
+
+/* All should print "true" */
+print a < b;
+print a <= b;
+print b > a;
+print b >= a;
+print a == a;
+print a != b;
+
+print a == (b-1.0);

@@ -1,0 +1,42 @@
+// error_script.wb
+//
+// Examples of semantic errors that could appear in WabbitScript code
+
+print 2 + 2.5;        // Type error (int + float)
+print -'c';           // Type error (- char)
+
+var x;                // Must have a type
+var x int = 2.5;      // Type mismatch in initialization
+var y int;
+var y int;            // Duplicate definition of y
+
+var z int;
+z = 4.5;              // Bad assignment (type error)
+w = 4.5;              // Bad assignment (undefined name)
+
+const pi = 3.14159;
+pi = 2.71828;         // Can't assign to const
+
+// Bad condition. Test isn't a boolean
+if 2 {
+
+} else {
+
+}
+
+// Bad loop. Test isn't a boolean
+
+while 2.5 {
+
+}
+
+// Use of type names in the wrong place
+print int;            // Can't load from int (not a variable)
+int = 2;              // Can't assign to int (not a variable)
+
+var int d;            // Type name/variable name swapped. "d" is not a type.
+
+// Break/continue used outside of a loop
+break;
+continue;
+

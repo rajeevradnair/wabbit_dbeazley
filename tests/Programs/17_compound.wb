@@ -1,0 +1,25 @@
+/* 17_compound.wb
+
+   Wabbit allows compound expressions.  For example:
+
+      var a = { statement1; statement2; statement3; }
+ 
+   The result of such an expression is the result of the last operation.
+   This is a simple test of the idea to see if it works.
+*/
+
+var a = 42;
+var b = 37;
+
+/* The single statement value "swap" */
+
+a = { var temp = b; b = a; temp; };
+
+print a;   /* --> 37 */
+print b;   /* --> 42 */
+
+/* Check evaluation */
+
+print {2+2;10+10;} + {2+2; 20+20;};   /* Should print "60" */
+
+

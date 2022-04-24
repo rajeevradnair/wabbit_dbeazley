@@ -1,0 +1,6 @@
+/* 00_intliteral.wb
+
+Print a single integer literal value.
+*/
+
+print 42;

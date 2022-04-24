@@ -1,0 +1,93 @@
+TODO
+	write a type checker
+	
+	advanced type systems
+		like in Haskell, Rust
+		
+	Dev tools
+		Linters
+		Debuggers
+	
+	
+	Language server protocol (VSCode, IDE)
+	
+	Tree-Sitter (ASTs, parsing)
+	
+	parser for function
+	parser synchronization
+	error messages
+	type checking
+	attempt the visitor pattern in pretty print
+	user interface (error messages, etc) - Useful diagnostics.
+		could you make wabbit errors as good as RUST errors?
+		
+		
+	make the interpreter full-featured like python
+	wabbit/wvm.py
+		write a WVM - wabbit virtual machine - #BEST PAYOFF BECAUSE IT IS PAINFUL#
+	wabit/wasm.py
+		WASM project - Generating stack machine code
+	wabit/llvm.py
+		LLVM project
+	optimization
+		constant folding
+		recurring expressions within a given expression
+		like c= (x+y)/a + (x+y)/b converted to temp=x+y and c=temp/a + temp/b
+		hashing of a subtree to detect commonalities
+		register coloring
+		NP hard problems
+		Travelling salesman problem
+		instruction rewriting
+		lifetime analysis
+	
+	
+	
+	class, objects
+	
+	strings
+	
+	transpile to C:
+		modify the to_source_pp
+		
+	
+	
+	compiler testing
+	
+	Runtime environment / operating system
+		Memory management
+		Garbage collection
+		I/O
+		Concurrency / Threads
+		Objects / Classes
+	
+
+	
+	
+	
+		
+	
+	
+	
+TODO
+	RAFT
+	formal verification
+	
+	
+
+	LL(1), LR(1), LALR(1), LR(n), GLR(n), PEG PARSING
+	First letter = 
+		L means Left to Right
+	
+	Second Letter = 
+		L means top-down parsing
+		R means bottom-up parsing
+	
+	1 = how much predictive lookahead tokens we have
+
+	
+TODO
+	
+	"Linkers and Loaders" by John Levine
+	
+	
+	

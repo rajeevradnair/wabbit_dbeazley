@@ -1,0 +1,11 @@
+/* 20_a_square.wb 
+ 
+   A basic function definition. */
+
+func square(x int, z int) int {
+    z = 3;
+    //z = z + 10;
+    return x*z;
+}
+
+print square(2,3);

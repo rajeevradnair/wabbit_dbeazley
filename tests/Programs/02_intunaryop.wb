@@ -1,0 +1,6 @@
+/* 02_intunaryop.wb
+
+   Unary operators involving integers */
+
+print -(2+3);   // -5
+print +(2+3);   // 5

@@ -1,0 +1,10 @@
+/* 05_const.wb
+
+   Parse a single const statement. A tricky thing here is that
+   a const can have an optional type. 
+*/
+
+const a = 1;
+const a int = 1;
+
+

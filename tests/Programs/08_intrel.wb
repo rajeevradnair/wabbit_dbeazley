@@ -1,0 +1,18 @@
+/* 08_intrel.wb
+
+   Tests of integer relations. 
+ */
+
+var a int = 2;
+var b int = 3;
+
+/* All should print "true" */
+print a < b;    
+print a <= b;
+print b > a;
+print b >= a;
+print a == a;
+print a != b;
+
+print a >    b;
+print a==(b-1);

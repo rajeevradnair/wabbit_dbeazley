@@ -1,0 +1,51 @@
+/* 15_mandel.wb
+
+   Draw a nice mandelbrot set!
+*/
+
+const xmin = -2.0;
+const xmax = 1.0;
+const ymin = -1.5;
+const ymax = 1.5;
+const width = 80.0;
+const height = 40.0;
+const threshhold = 1000;
+
+var dx float = (xmax - xmin)/width;
+var dy float = (ymax - ymin)/height;
+var y float = ymax;
+var x float;
+var _x float;
+var _y float;
+var xtemp float;
+var n int;
+var in_mandel bool;
+while y >= ymin {
+     x = xmin;
+     while x < xmax {
+         _x = 0.0;
+         _y = 0.0;
+         n = threshhold;
+         in_mandel = true;
+         while n > 0 {
+             xtemp = _x*_x - _y*_y + x;
+             _y = 2.0*_x*_y + y;
+             _x = xtemp;
+             n = n - 1;
+             if (_x*_x + _y*_y) > 4.0 {
+                 in_mandel = false;
+                 n = 0;
+             }
+         }               
+         if in_mandel {
+             print '*';
+         } else {
+             print '.';
+         }
+         x = x + dx;
+     }
+     print '\n';
+     y = y - dy;
+}
+
+

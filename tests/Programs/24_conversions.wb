@@ -1,0 +1,12 @@
+/* 24_conversions.wb
+
+   Wabbit has type conversions that look a lot like functions */
+
+var x float = 1.234;
+var y int = 42;
+
+print x + float(y);     // 43.234
+print int(x) + y;       // 43
+print char(y);          // '*'
+print int('\n');        // 10
+

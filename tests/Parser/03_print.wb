@@ -1,0 +1,16 @@
+/* 03_print.wb
+
+   Parse a single isolated print statement.  This introduces
+   the problem of expressions.  For starting out, force all
+   expressions to be a simple integer.  For example:
+
+   def parse_expression(tokens):
+       tok = tokens.expect('INTEGER')
+       return Integer(tok.value)
+
+   Now, write a rule for parse_print() that expects a PRINT token,
+   an expression, and a SEMI.  Make sure you add parse_print() to
+   your code for parsing statements.
+*/
+
+print 1;

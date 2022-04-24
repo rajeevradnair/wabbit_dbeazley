@@ -1,0 +1,15 @@
+/* 14_charrel.wb
+
+   Relations and comparisons with characters
+ */
+
+var a char = 'a';
+var b char = 'b';
+
+/* All should print true */
+print a < b; 
+print a <= b;
+print b > a; 
+print b >= a;
+print a == a;
+print a != b;

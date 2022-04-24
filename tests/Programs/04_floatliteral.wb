@@ -1,0 +1,6 @@
+/* 04_floatliteral.wb
+
+A simple print statement with a floating point number.
+*/
+
+print 4.2;

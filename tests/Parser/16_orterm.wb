@@ -1,0 +1,9 @@
+/* 16_orterm.wb
+
+   Parsing of logical-or operator */
+print x || y || z;
+print x || y;
+print a && b || c && d;  // Must parse as (a && b) || (c && d)
+
+
+

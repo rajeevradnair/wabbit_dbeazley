@@ -1,0 +1,65 @@
+/* error_func.wb
+
+   This file has some programming errors that could appear in WabbitFunc.
+*/
+
+func f(x int, y int) int {
+   return x + y;
+}
+
+var result int;
+result = f(2);        // Wrong number of arguments
+result = f(2, 3.5);   // Type error in argument 2
+
+var fresult float;
+fresult = f(2, 3);    // Type error in assignment (function returns float)
+fresult = spam();     // Undefined function spam
+
+// Missing return statement.
+func g(x int) int {
+   print x;
+}
+
+// Type error in return.  Expects an "int"
+func h(x int) int {
+   return 2.5;
+}
+
+return 2;   // Return used outside of a function
+
+func j(x int) int {
+    // Error. Nested functions are not supported.
+    func k(y int) int {
+        return x + y;
+    }
+    return k(2);       // ????? k not defined (probably)
+}
+
+// Bad parameter (type and name are swapped)
+func w(int x) int {
+   return 1;
+}
+
+// Unknown return type (real)
+func t(int x) real {
+    return 0.0;
+}
+
+// Inconsistent return
+func s(int x) int {
+    if x > 0 {
+        return 2;
+    } else {
+        return 2.5;
+    }
+}
+
+// Missing return
+func u(int x) int {
+    if x > 0 {
+        return 2;
+    }
+    // Missing return for alternative branch
+}
+
+

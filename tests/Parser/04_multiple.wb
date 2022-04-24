@@ -1,0 +1,14 @@
+/* 04_multiple.wb
+
+   Modify your parser so that it can parse multiple statements.  You'll
+   need to write code that collects statements into a list of some kind.
+   A tricky part of this is knowing when you're done--you might need
+   to recognize a special end-of-file (EOF) token or have some other
+   mechanism to stop looping and return.
+*/
+
+print 1;
+print 2;
+print 3;
+
+

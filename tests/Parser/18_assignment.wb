@@ -1,0 +1,7 @@
+/* 18_assignment.wb
+
+   An assignment expression */
+
+x = 1;
+//print x = 1;
+

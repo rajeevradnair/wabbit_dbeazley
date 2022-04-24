@@ -1,0 +1,20 @@
+/* prog1.wb - Hello World */
+
+/* Wabbit programs start in a function called main(). Here is a simple
+   example that prints 'Hello'.  Sadly, Wabbit doesn't feature
+   text-strings--only single characters.  So, we've got to use
+   multiple print statements.  */
+
+func main() int {
+    print 'H';
+    print 'e';
+    print 'l';
+    print 'l';
+    print 'o';
+    print '\n';
+    print('Rajeev');
+    return 0;
+}
+
+/* To run it, do this: python3 wabbit.py prog1.wb */
+

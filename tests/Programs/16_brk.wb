@@ -1,0 +1,16 @@
+/* 16_brk.wb
+
+Test of break/continue */
+
+var n int = 0;
+while true {
+      n = n + 1;
+      if n == 5 {
+         continue;
+      }
+      print n;
+      if n > 10 {
+          break;
+      }
+}
+print -1;

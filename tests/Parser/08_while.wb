@@ -1,0 +1,5 @@
+/* 08_while.wb
+
+   Parse a while statement */
+
+while 1 { print 2; }

@@ -1,0 +1,13 @@
+/* 14_relterm.wb
+
+   Parsing of relations */
+
+print 2 < 3;
+print 2 <= 3;
+print 2 > 3;
+print 2 >= 3;
+print 2 == 3;
+print 2 != 3;
+
+print a+b*c < d-e/f;  // Must parse as (a + (b*c)) < (d - (e/f))
+

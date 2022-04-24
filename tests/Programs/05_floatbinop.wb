@@ -1,0 +1,8 @@
+/* 05_floatbinop.wb
+
+   Binary operators involving floats */
+
+print 2.0 + 3.0;    // 5.0
+print 2.0 - 3.0;    // -1.0
+print 2.0 * 3.0;    // 6.0
+print 3.0 / 2.0;    // 1.5

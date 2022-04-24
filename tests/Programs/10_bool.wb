@@ -1,0 +1,17 @@
+/* 10_bool.wb
+
+Basic tests involving boolean literals and operators
+*/
+
+var a bool = true;
+var b bool = false;
+
+print a;         // prints "true"
+print b;         // prints "false"
+print a == b;    // prints "false"
+print a != b;    // prints "true"
+print a && b;    // prints "false"
+print a || b;    // prints "true"
+print !a;        // prints "false"
+
+

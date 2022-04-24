@@ -1,0 +1,10 @@
+/* 13_sumterm.wb
+
+   Parse sums/differences
+   */
+
+print 1 + 2;
+print 3 - 4;
+print a*b + c*d;
+print 3 + 4*5;     // Must parse as 3 + (4*5)
+print 3*4 + 5;     // Must parse as (3*4) + 5

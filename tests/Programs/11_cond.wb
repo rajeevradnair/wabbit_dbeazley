@@ -1,0 +1,13 @@
+/* 11_cond.wb
+
+   A basic conditional;
+*/
+
+var x = 33;
+
+/* Should print "3" */
+if x > 0 {
+   print x;
+} else {
+   print -x;
+}

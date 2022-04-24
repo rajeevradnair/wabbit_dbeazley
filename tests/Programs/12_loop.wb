@@ -1,0 +1,16 @@
+/* 12_loop.wb
+
+   Test of a while-loop
+*/
+
+var n int = 1;
+var value int = 1;
+
+/* Prints out the first 10 factorials */
+while n < 10 {
+    value = value * n; 
+    print value ;
+    n = n + 1;
+}
+
+
